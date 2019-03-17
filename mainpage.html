@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to your Gpu page</title>
+    <meta charset="utf-8"/>
+          <style type="text/css">
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    thead {
+      background: #737373;
+      color: #fff;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 6px;
+    }
+    tr:hover:nth-child(even) {
+      background-color: #EEEEEE;
+    }
+    body {
+      font-family: "Times New Roman", Times, serif;
+    }
+    a:visited {
+      color: blue;
+    }
+    a:hover {
+      color: green;
+    }
+</style>
+</head>
+<body>
+<h1 style="text-align:center;"> Welcome</h1>
+Welcome to the application you can logout <a href="{{ logout_url }}">here</a>
+<a href="/search_gpu">search</a><br/>
+<!-- from that will be used to permit the user to add a new address -->
+<form action="/" method="post">
+    <table style="text-align: left; width:100%">
+        <col width="50">
+        <col width="50">
+        <tr>
+            <th>Name:</th>
+            <th><input type="text" name="Name" required/><br/></th>
+        </tr>
+        <tr>
+            <th>Manufacturer:</th>
+            <th><input type="text" name="Manufacturer" required/><br/></th>
+        </tr>
+        <tr>
+            <th>Date_Issued:</th>
+            <th><input type="date" name="Date_Issued" required/><br/></th>
+        </tr>
+        <tr>
+            <th>Geometry_Shader:</th>
+            <th><input type="checkbox" name="Geometry_Shader"/><br/></th>
+        </tr>
+        <tr>
+            <th>Tesselation_Shader:</th>
+            <th><input type="checkbox" name="Tesselation_Shader"/><br/></th>
+        </tr>
+        <tr>
+            <th>ShaderInt16:</th>
+            <th><input type="checkbox" name="ShaderInt16"/><br/></th>
+        </tr>
+        <tr>
+            <th>Sparse_Binding:</th>
+            <th><input type="checkbox" name="Sparse_Binding"/><br/></th>
+        </tr>
+        <tr>
+            <th>Texture_Compression_ETC2:</th>
+            <th><input type="checkbox" name="Texture_Compression_ETC2"/><br/></th>
+        </tr>
+        <tr>
+            <th>Vertex_Pipeline_Stores_And_Atomics:</th>
+            <th><input type="checkbox" name="Vertex_Pipeline_Stores_And_Atomics"/><br/></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th><input type="submit" name="button" value="Add Gpu Details"/></th>
+        </tr>
+    </table>
+
+</form>
+{% if error %}
+<p style="color:red">
+    {{ error }}
+</p>
+{% endif %}
+
+<br/>
+<h2>Available GPUs</h2>
+<form action="/" method="post">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th><input type="submit" name="button" value="compareGPU"></th>
+        </tr>
+    </table>
+    {% if gpu_db %}
+    {% for i in gpu_db %}
+    <table>
+        <tr>
+            <td>
+                <p><a href="/gpu_details?id={{ i.id() }}"> {{i.id()}}</a></p>
+            </td>
+
+
+            <td>
+                <input type="checkbox" name="compare" value="{{ i.id() }}"/>
+            </td>
+        </tr>
+
+        {% endfor %}
+        {% endif %}
+    </table>
+</form>
+{% if compareError %}
+<p style="color:red">
+    {{ compareError }}
+</p>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+<table>
+    <thead>
+    <th>
+        Gpu name
+    </th>
+    <th>
+        Manufacturer
+    </th>
+    <form action="/search_gpu" method="post">
+        <th>
+            <input type="checkbox" name="Geometry_Shader"/>
+            geometryShader
+        </th>
+        <th>
+            <input type="checkbox" name="Tesselation_Shader"/>
+            tesselationShader
+        </th>
+        <th><input type="checkbox" name="ShaderInt16"/>
+            shaderInt16
+        </th>
+        <th><input type="checkbox" name="Sparse_Binding"/>
+            sparseBinding
+        </th>
+        <th><input type="checkbox" name="Texture_Compression_ETC2"/>
+            textureCompressionETC2
+        </th>
+        <th><input type="checkbox" name="Vertex_Pipeline_Stores_And_Atomics"/>
+            vertexPipelineStoresAndAtomics
+        </th>
+        <th>
+            <input type="submit" name="button" value="Search"/>
+        </th>
+    </form>
+    </thead>
+    <tbody>
+    {% for gpu in gpu_model %}
+
+    <tr>
+        <td><a href="/gpu_details?id={{ gpu.Name }}"> {{ gpu.Name }} </a></td>
+        </td>
+        <td>
+            {{ gpu.Manufacturer}}
+        </td>
+        <td>
+            {{gpu.Date}}
+        </td>
+        <td>
+            {{gpu.Geometry_Shader}}
+        </td>
+        <td>
+            {{gpu.Tesselation_Shader}}
+        </td>
+        <td>
+            {{gpu.ShaderInt16}}
+        </td>
+        <td>
+            {{gpu.Sparse_Binding}}
+        </td>
+        <td>
+            {{gpu.Texture_Compression_ETC2}}
+        </td>
+        <td>
+            {{gpu.Vertex_Pipeline_Stores_And_Atomics}}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

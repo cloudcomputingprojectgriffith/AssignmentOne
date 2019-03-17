@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Gpu details</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+
+<body>
+
+<p> Gpu Name: : {{ gpu.Name }}</p> <br/>
+
+Manufacturer : {{ gpu.Manufacturer }}<br/>
+Date_Issued : {{ gpu.Date_Issued }}<br/>
+Geometry_Shader : {{ gpu.Geometry_Shader }}<br/>
+Tesselation_Shader : {{ gpu.Tesselation_Shader }}<br/>
+ShaderInt16 : {{ gpu.ShaderInt16 }}<br/>
+Sparse_Binding : {{ gpu.Sparse_Binding }}<br/>
+Texture_Compression_ETC2 : {{ gpu.Texture_Compression_ETC2 }}<br/>
+Vertex_Pipeline_Stores_And_Atomics : {{ gpu.Vertex_Pipeline_Stores_And_Atomics }}<br/>
+<br/>
+<!--<input type="submit" value="Edit" name="button"/>-->
+Update GPU <a href="/gpu_details_update?Name={{ gpu.Name }}">Click here</a>
+<form method="get" action="/">
+    <input type="submit" value="Cancel" name="button"/>
+</form>
+</body>
+</html>

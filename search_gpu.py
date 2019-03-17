@@ -75,7 +75,7 @@ class Search_gpu(webapp2.RequestHandler):
                 gpu_list=gpu_list.filter(Gpu_Data_Model.Texture_Compression_ETC2==True)
 
            if Vertex_Pipeline_Stores_And_Atomics:
-                gpu_list=gpu_list.filter(Gpu_Data_Model.Vertex_Pipeline_Stores_And_Atomicss==True)
+                gpu_list=gpu_list.filter(Gpu_Data_Model.Vertex_Pipeline_Stores_And_Atomics==True)
 
            for i in gpu_list:
                 self.response.write(i.Name + '<br/>')

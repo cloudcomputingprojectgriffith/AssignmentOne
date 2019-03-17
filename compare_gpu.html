@@ -4,10 +4,37 @@
     <title>
         Compare GPU
     </title>
+    <style type="text/css">
+    table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		thead {
+			background: #ffffff;
+			color: #fff;
+		}
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 6px;
+		}
+		tr:nth-child(even) {
+			background-color: #EEEEEE;
+		}
+		body {
+      font-family: "Times New Roman", Times, serif;
+    }
+    a:visited {
+      color: blue;
+    }
+    a:hover {
+      color: green;
+    }
 
+    </Style>
 </head>
 <body>
-
 
 <table>
 
@@ -18,7 +45,6 @@
 
     <tr>
         <td>Gpu Name:{{i.Name}}</td>
-
         <td>GeometryShader:{{i.Geometry_Shader}}</br>
             tesselationShader:{{i.Tesselation_Shader}}</br>
             shaderInt16:{{i.ShaderInt16 }}</br>
@@ -30,8 +56,6 @@
     </tr>
     {% endfor %}
     {% endfor %}
-
-
 </table>
 </body>
 

@@ -1,37 +1,83 @@
 <!DOCTYPE html>
 <html>
-
-<html class="no-js" lang="">
 <head>
-  <meta charset="utf-8">
-  <title>Gpu details</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Gpu details</title>
+    <style type="text/css">
+    table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		thead {
+			background: #ffffff;
+			color: #fff;
+		}
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 6px;
+		}
+		tr:nth-child(even) {
+			background-color: #EEEEEE;
+		}
+		body {
+      font-family: "Times New Roman", Times, serif;
+    }
+    a:visited {
+      color: blue;
+    }
+    a:hover {
+      color: green;
+    }
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
 
-  <meta name="theme-color" content="#fafafa">
+
+    </Style>
 </head>
-
-
-<body>
-
-<p> Gpu Name: : {{ gpu.Name }}</p> <br/>
-
-Manufacturer : {{ gpu.Manufacturer }}<br/>
-Date_Issued : {{ gpu.Date_Issued }}<br/>
-Geometry_Shader : {{ gpu.Geometry_Shader }}<br/>
-Tesselation_Shader : {{ gpu.Tesselation_Shader }}<br/>
-ShaderInt16 : {{ gpu.ShaderInt16 }}<br/>
-Sparse_Binding : {{ gpu.Sparse_Binding }}<br/>
-Texture_Compression_ETC2 : {{ gpu.Texture_Compression_ETC2 }}<br/>
-Vertex_Pipeline_Stores_And_Atomics : {{ gpu.Vertex_Pipeline_Stores_And_Atomics }}<br/>
-<br/>
-<!--<input type="submit" value="Edit" name="button"/>-->
-Update GPU <a href="/gpu_details_update?Name={{ gpu.Name }}">Click here</a>
-<form method="get" action="/">
-    <input type="submit" value="Cancel" name="button"/>
-</form>
+<table style="text-align: left; width:100%">
+    <tr>
+        <th>Name:</th>
+        <th><input type="text" value="{{ gpu.Name }}" readonly/><br/></th>
+    </tr>
+    <tr>
+        <th>Manufacturer:</th>
+        <th><input type="text" value="{{ gpu.Manufacturer }}" readonly/><br/></th>
+    </tr>
+    <tr>
+        <th>Date_Issued:</th>
+        <th><input type="date" value="{{ gpu.Date_Issued }}" readonly/><br/></th>
+    </tr>
+    <tr>
+        <th>Geometry_Shader:</th>
+        <th><input type="text" value="{{ gpu.Geometry_Shader }}" readonly/><br/></th>
+    </tr>
+    <tr>
+        <th>Tesselation_Shader:</th>
+        <th><input type="text" value="{{ gpu.Tesselation_Shader }}" readonly/><br/></th>
+    </tr>
+    <tr>
+        <th>ShaderInt16:</th>
+        <th><input type="text" value="{{ gpu.ShaderInt16 }}" readonly/><br/></th>
+    </tr>
+    <tr>
+        <th>Sparse_Binding:</th>
+        <th><input type="text" value="{{ gpu.Sparse_Binding }}" readonly/><br/></th>
+    </tr>
+    <tr>
+        <th>Texture_Compression_ETC2:</th>
+        <th><input type="text" value="{{ gpu.Texture_Compression_ETC2 }}" readonly/><br/></th>
+    </tr>
+    <tr>
+        <th>Vertex_Pipeline_Stores_And_Atomics:</th>
+        <th><input type="text" value="{{ gpu.Vertex_Pipeline_Stores_And_Atomics }}" readonly/><br/></th>
+    </tr>
+</table>
+<div style="text-align: center;">
+    Update GPU <a href="/gpu_details_update?Name={{ gpu.Name }}">Click here</a>
+    <form method="get" action="/">
+        <input type="submit" value="Cancel" name="button"/>
+    </form>
+</div>
 </body>
 </html>

@@ -115,7 +115,7 @@ class MainPage(webapp2.RequestHandler):
                 compare_query[i] = compare_query[i].filter(Gpu_Data_Model.Name == gpu_name[i])
                 #logger.info(compare_query)
             #logger.info('end for')
-            if (len(compare_query)) == 2:
+            if (len(compare_query)) >= 2:
 
 
                 #logger.info(compare_query)

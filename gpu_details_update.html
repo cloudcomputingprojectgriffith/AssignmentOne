@@ -3,59 +3,103 @@
 <head>
     <meta charset="utf-8"/>
     <title>Update Gpu information</title>
+    <style type="text/css">
+    table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+		thead {
+			background: #ffffff;
+			color: #fff;
+		}
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 6px;
+		}
+		tr:nth-child(even) {
+			background-color: #EEEEEE;
+		}
+		body {
+      font-family: "Times New Roman", Times, serif;
+    }
+    a:visited {
+      color: blue;
+    }
+    a:hover {
+      color: green;
+    }
+
+
+    </Style>
 </head>
 <body>
-Edit the Gpu information below<br/>
+<h3> Edit the Gpu information below<br/></h3>
 <form method="post" action="/gpu_details_update">
 
-    <p> Gpu Name: : {{ gpu.Name }}</p> <br/>
+    <table>
+        <tr>
 
+            <th><p> Gpu Name: </th> <th> {{ gpu.Name }}</p> </th>
+        </tr>
+        <tr>
 
-    Manufacturer:<input type="text" name="Manufacturer" value="{{ gpu.Manufacturer }}"/>
-    <br/>
-    Date_Issued:<input type="date" name="Date_Issued" value="{{ gpu.Date_Issued }}"/>
-    <br/>
-
-    {% if gpu.Geometry_Shader %}
-    Geometry_Shader: <input type="checkbox" name="Geometry_Shader" value="{{gpu.Geometry_Shader}}" checked/>
-    {% else %}
-    Geometry_Shader : <input type="checkbox" name="Geometry_Shader" value="{{gpu.Geometry_Shader}}"/>
-    {% endif %}<br/>
-
-    {% if gpu.Tesselation_Shader %}
-    Tesselation_Shader : <input type="checkbox" name="Tesselation_Shader" value="{{gpu.Tesselation_Shader}}" checked/>
-    {% else %}
-    Tesselation_Shader : <input type="checkbox" name="Tesselation_Shader" value="{{gpu.Tesselation_Shader}}"/>
-    {% endif %}<br/>
-
-    {% if gpu.ShaderInt16 %}
-    ShaderInt16 : <input type="checkbox" name="ShaderInt16" value="{{gpu.ShaderInt16}}" checked/>
-    {% else %}
-    ShaderInt16 : <input type="checkbox" name="ShaderInt16" value="{{gpu.ShaderInt16}}"/>
-    {% endif %}<br/>
-
-    {% if gpu.Sparse_Binding %}
-    Sparse_Binding : <input type="checkbox" name="Sparse_Binding" value="{{gpu.Sparse_Binding}}" checked/>
-    {% else %}
-    Sparse_Binding : <input type="checkbox" name="Sparse_Binding" value="{{gpu.Sparse_Binding}}"/>
-    {% endif %}<br/>
-
-    {% if gpu.Texture_Compression_ETC2 %}
-    Texture_Compression_ETC2 : <input type="checkbox" name="Texture_Compression_ETC2"
-                                      value="{{gpu.Texture_Compression_ETC2}}" checked/>
-    {% else %}
-    Texture_Compression_ETC2 : <input type="checkbox" name="Texture_Compression_ETC2"
-                                      value="{{gpu.Texture_Compression_ETC2}}"/>
-    {% endif %}<br/>
-
-    {% if gpu.Vertex_Pipeline_Stores_And_Atomics %}
-    Vertex_Pipeline_Stores_And_Atomics : <input type="checkbox" name="Vertex_Pipeline_Stores_And_Atomics"
-                                                value="{{gpu.Vertex_Pipeline_Stores_And_Atomics}}" checked/>
-    {% else %}
-    Vertex_Pipeline_Stores_And_Atomics : <input type="checkbox" name="Vertex_Pipeline_Stores_And_Atomics"
-                                                value="{{gpu.Vertex_Pipeline_Stores_And_Atomics}}"/>
-    {% endif %}<br/>
-
+           <th> Manufacturer: </th> <th> <input type="text" name="Manufacturer" value="{{ gpu.Manufacturer }}"/></th>
+        </tr>
+        <tr>
+           <th> Date_Issued: </th> <th><input type="date" name="Date_Issued" value="{{ gpu.Date_Issued }}"/></th>
+        </tr>
+        <tr>
+            {% if gpu.Geometry_Shader %}
+            <th> Geometry_Shader: </th> <th><input type="checkbox" name="Geometry_Shader" value="{{gpu.Geometry_Shader}}" checked/> </th>
+            {% else %}
+            <th> Geometry_Shader: </th> <th><input type="checkbox" name="Geometry_Shader" value="{{gpu.Geometry_Shader}}"/></th>
+            {% endif %}<br/>
+        </tr>
+        <tr>
+            {% if gpu.Tesselation_Shader %}
+            <th> Tesselation_Shader:</th> <th> <input type="checkbox" name="Tesselation_Shader" value="{{gpu.Tesselation_Shader}}"
+                                        checked/></th>
+            {% else %}
+            <th> Tesselation_Shader:</th> <th> <input type="checkbox" name="Tesselation_Shader" value="{{gpu.Tesselation_Shader}}"/></th>
+            {% endif %}<br/>
+        </tr>
+        <tr>
+            {% if gpu.ShaderInt16 %}
+            <th> ShaderInt16:</th> <th> <input type="checkbox" name="ShaderInt16" value="{{gpu.ShaderInt16}}" checked/></th>
+            {% else %}
+            <th> ShaderInt16:</th> <th> <input type="checkbox" name="ShaderInt16" value="{{gpu.ShaderInt16}}"/></th>
+            {% endif %}<br/>
+        </tr>
+        <tr>
+            {% if gpu.Sparse_Binding %}
+            <th> Sparse_Binding: </th> <th> <input type="checkbox" name="Sparse_Binding" value="{{gpu.Sparse_Binding}}" checked/></th>
+            {% else %}
+            <th> Sparse_Binding: </th> <th> <input type="checkbox" name="Sparse_Binding" value="{{gpu.Sparse_Binding}}"/></th>
+            {% endif %}<br/>
+        </tr>
+        <tr>
+            {% if gpu.Texture_Compression_ETC2 %}
+            <th> Texture_Compression_ETC2: </th> <th><input type="checkbox" name="Texture_Compression_ETC2"
+                                              value="{{gpu.Texture_Compression_ETC2}}" checked/></th>
+            {% else %}
+            <th> Texture_Compression_ETC2: </th> <th> <input type="checkbox" name="Texture_Compression_ETC2"
+                                              value="{{gpu.Texture_Compression_ETC2}}"/></th>
+            {% endif %}<br/>
+        </tr>
+        <tr>
+            {% if gpu.Vertex_Pipeline_Stores_And_Atomics %}
+            <th> Vertex_Pipeline_Stores_And_Atomics: </th> <th> <input type="checkbox" name="Vertex_Pipeline_Stores_And_Atomics"
+                                                        value="{{gpu.Vertex_Pipeline_Stores_And_Atomics}}" checked/></th>
+            {% else %}
+            <th> Vertex_Pipeline_Stores_And_Atomics: </th> <th> <input type="checkbox" name="Vertex_Pipeline_Stores_And_Atomics"
+                                                        value="{{gpu.Vertex_Pipeline_Stores_And_Atomics}}"/></th>
+            {% endif %}<br/>
+        </tr>
+        <tr>
+        </tr>
+    </table>
 
     <input type="submit" value="Update" name="button"/>
 </form>

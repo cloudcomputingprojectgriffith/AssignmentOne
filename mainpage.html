@@ -3,20 +3,20 @@
 <head>
     <title>Welcome to your Gpu page</title>
     <meta charset="utf-8"/>
-          <style type="text/css">
+    <style type="text/css">
     table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
     }
     thead {
-      background: #737373;
+      background: #ffffff;
       color: #fff;
     }
     td, th {
       border: 1px solid #dddddd;
       text-align: left;
-      padding: 6px;
+      padding: 5px;
     }
     tr:hover:nth-child(even) {
       background-color: #EEEEEE;
@@ -30,17 +30,22 @@
     a:hover {
       color: green;
     }
-</style>
+
+
+
+
+
+    </style>
 </head>
 <body>
-<h1 style="text-align:center;"> Welcome</h1>
-Welcome to the application you can logout <a href="{{ logout_url }}">here</a>
-<a href="/search_gpu">search</a><br/>
+
+<div style="text-align: right;">logout <a href="{{ logout_url }}">here</a><br></div>
+<h1 style="text-align:center;"> Welcome to the application</h1>
+
+<div style="text-align: right;"><a href="/search_gpu">search</a><br/></div>
 <!-- from that will be used to permit the user to add a new address -->
 <form action="/" method="post">
     <table style="text-align: left; width:100%">
-        <col width="50">
-        <col width="50">
         <tr>
             <th>Name:</th>
             <th><input type="text" name="Name" required/><br/></th>
@@ -93,28 +98,30 @@ Welcome to the application you can logout <a href="{{ logout_url }}">here</a>
 <br/>
 <h2>Available GPUs</h2>
 <form action="/" method="post">
-    <table>
+    <table style="text-align: left; width:100%">
         <tr>
-            <th>Name</th>
-            <th><input type="submit" name="button" value="compareGPU"></th>
+            <th width="64%">Name</th>
+            <th width="36%"><input type="submit" name="button" value="compareGPU"></th>
         </tr>
     </table>
     {% if gpu_db %}
     {% for i in gpu_db %}
     <table>
+        <thead>
         <tr>
-            <td>
-                <p><a href="/gpu_details?id={{ i.id() }}"> {{i.id()}}</a></p>
+            <td width="64%">
+                <a href="/gpu_details?id={{ i.id() }}"> {{i.id()}}</a>
             </td>
 
 
-            <td>
+            <td width="36%">
                 <input type="checkbox" name="compare" value="{{ i.id() }}"/>
             </td>
         </tr>
 
         {% endfor %}
         {% endif %}
+        </thead>
     </table>
 </form>
 {% if compareError %}
